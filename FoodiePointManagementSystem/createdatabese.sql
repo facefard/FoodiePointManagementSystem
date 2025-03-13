@@ -141,3 +141,15 @@ CREATE TABLE dbo.Inventory (
     LastUpdated DATETIME DEFAULT GETDATE()
 );
 GO
+
+-- ============================================
+-- Step 10: Insert sample data (Users table)
+-- ============================================
+INSERT INTO dbo.Users (UserName, Email, Password, Role)
+VALUES 
+('admin', 'admin@example.com', 'Admin123!', 'Admin'),
+('manager', 'manager@example.com', 'Manager123!', 'Manager'),
+('chef', 'chef@example.com', 'Chef123!', 'Chef'),
+('coordinator', 'coordinator@example.com', 'Coordinator123!', 'Reservation Coordinator'),
+('customer', 'customer@example.com', 'Customer123!', 'Customer');
+GO
