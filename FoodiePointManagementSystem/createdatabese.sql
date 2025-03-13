@@ -1,5 +1,5 @@
 -- ============================================
--- Step 1: FoodiePointDB を作成する
+-- Step 1: Create the FoodiePointDB database
 -- ============================================
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'FoodiePointDB')
 BEGIN
@@ -11,7 +11,7 @@ USE FoodiePointDB;
 GO
 
 -- ============================================
--- Step 2: Users テーブルの作成
+-- Step 2: Create Users table
 -- ============================================
 IF OBJECT_ID('dbo.Users', 'U') IS NOT NULL
     DROP TABLE dbo.Users;
@@ -21,14 +21,14 @@ CREATE TABLE dbo.Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     UserName NVARCHAR(50) NOT NULL,
     Email NVARCHAR(100) UNIQUE NOT NULL,
-    Password NVARCHAR(255) NOT NULL,  -- パスワードは必要に応じてハッシュ化を検討
+    Password NVARCHAR(255) NOT NULL,  -- ※ Consider hashing passwords in production
     Role NVARCHAR(30) CHECK (Role IN ('Admin', 'Manager', 'Chef', 'Reservation Coordinator', 'Customer')),
     CreatedAt DATETIME DEFAULT GETDATE()
 );
 GO
 
 -- ============================================
--- Step 3: Sales テーブルの作成（売上レポート用）
+-- Step 3: Create Sales table (for sales reports)
 -- ============================================
 IF OBJECT_ID('dbo.Sales', 'U') IS NOT NULL
     DROP TABLE dbo.Sales;
@@ -44,7 +44,7 @@ CREATE TABLE dbo.Sales (
 GO
 
 -- ============================================
--- Step 4: Feedback テーブルの作成（顧客フィードバック用）
+-- Step 4: Create Feedback table (for customer feedback)
 -- ============================================
 IF OBJECT_ID('dbo.Feedback', 'U') IS NOT NULL
     DROP TABLE dbo.Feedback;
@@ -60,7 +60,7 @@ CREATE TABLE dbo.Feedback (
 GO
 
 -- ============================================
--- Step 5: Reservations テーブルの作成（予約管理用）
+-- Step 5: Create Reservations table (for managing reservations)
 -- ============================================
 IF OBJECT_ID('dbo.Reservations', 'U') IS NOT NULL
     DROP TABLE dbo.Reservations;
@@ -68,15 +68,16 @@ GO
 
 CREATE TABLE dbo.Reservations (
     ReservationID INT PRIMARY KEY IDENTITY(1,1),
-    CustomerID INT NOT NULL,  -- 必要に応じて FOREIGN KEY (Users)
+    CustomerID INT NOT NULL,  -- Foreign key relationship to Users table (if needed)
     ReservationDate DATETIME NOT NULL,
     Guests INT NOT NULL CHECK (Guests > 0),
-    Status NVARCHAR(20) CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled'))
+    Status NVARCHAR(20) CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
+    HallDetails NVARCHAR(255) NULL  -- Hall assignment details (optional)
 );
 GO
 
 -- ============================================
--- Step 6: Menu テーブルの作成（メニュー管理用）
+-- Step 6: Create Menu table (for managing restaurant menu)
 -- ============================================
 IF OBJECT_ID('dbo.Menu', 'U') IS NOT NULL
     DROP TABLE dbo.Menu;
@@ -92,7 +93,7 @@ CREATE TABLE dbo.Menu (
 GO
 
 -- ============================================
--- Step 7: Orders テーブルの作成（注文管理用）
+-- Step 7: Create Orders table (for managing customer orders)
 -- ============================================
 IF OBJECT_ID('dbo.Orders', 'U') IS NOT NULL
     DROP TABLE dbo.Orders;
@@ -100,14 +101,15 @@ GO
 
 CREATE TABLE dbo.Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
-    CustomerID INT NOT NULL,  -- 必要に応じて FOREIGN KEY (Users)
+    CustomerID INT NOT NULL,  -- Foreign key relationship to Users table (if needed)
     OrderDate DATETIME DEFAULT GETDATE(),
-    Status NVARCHAR(50) CHECK (Status IN ('Pending', 'In Progress', 'Completed'))
+    Status NVARCHAR(50) CHECK (Status IN ('Pending', 'In Progress', 'Completed')),
+    TotalPrice DECIMAL(10,2) NULL
 );
 GO
 
 -- ============================================
--- Step 8: OrderDetails テーブルの作成（注文詳細）
+-- Step 8: Create OrderDetails table (for storing order details)
 -- ============================================
 IF OBJECT_ID('dbo.OrderDetails', 'U') IS NOT NULL
     DROP TABLE dbo.OrderDetails;
@@ -115,17 +117,17 @@ GO
 
 CREATE TABLE dbo.OrderDetails (
     OrderDetailID INT PRIMARY KEY IDENTITY(1,1),
-    OrderID INT NOT NULL,
-    MenuID INT NOT NULL,
+    OrderID INT NOT NULL,  -- Foreign key to Orders table
+    MenuID INT NOT NULL,   -- Foreign key to Menu table
     Quantity INT NOT NULL,
     Subtotal DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (OrderID) REFERENCES dbo.Orders(OrderID),
-    FOREIGN KEY (MenuID) REFERENCES dbo.Menu(MenuID)
+    CONSTRAINT FK_OrderDetails_Order FOREIGN KEY (OrderID) REFERENCES dbo.Orders(OrderID),
+    CONSTRAINT FK_OrderDetails_Menu FOREIGN KEY (MenuID) REFERENCES dbo.Menu(MenuID)
 );
 GO
 
 -- ============================================
--- Step 9: Inventory テーブルの作成（在庫管理用）
+-- Step 9: Create Inventory table (for managing ingredients)
 -- ============================================
 IF OBJECT_ID('dbo.Inventory', 'U') IS NOT NULL
     DROP TABLE dbo.Inventory;
@@ -138,16 +140,4 @@ CREATE TABLE dbo.Inventory (
     Price DECIMAL(10,2) NOT NULL,
     LastUpdated DATETIME DEFAULT GETDATE()
 );
-GO
-
--- ============================================
--- Step 10: サンプルデータの挿入 (Users テーブル)
--- ============================================
-INSERT INTO dbo.Users (UserName, Email, Password, Role)
-VALUES 
-('admin', 'admin@example.com', 'Admin123!', 'Admin'),
-('manager', 'manager@example.com', 'Manager123!', 'Manager'),
-('chef', 'chef@example.com', 'Chef123!', 'Chef'),
-('coordinator', 'coordinator@example.com', 'Coordinator123!', 'Reservation Coordinator'),
-('customer', 'customer@example.com', 'Customer123!', 'Customer');
 GO
