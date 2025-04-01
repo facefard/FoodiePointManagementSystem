@@ -69,12 +69,18 @@ GO
 
 CREATE TABLE dbo.Reservations (
     ReservationID INT PRIMARY KEY IDENTITY(1,1),
-    CustomerID INT NOT NULL,  -- Foreign key relationship to Users table (if needed)
-    ReservationDate DATETIME NOT NULL,
-    Guests INT NOT NULL CHECK (Guests > 0),
-    Status NVARCHAR(20) CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled')),
-    HallDetails NVARCHAR(255) NULL  -- Hall assignment details (optional)
+    CustomerID INT FOREIGN KEY REFERENCES dbo.Users(UserID),
+    HallID INT FOREIGN KEY REFERENCES dbo.Halls(HallID),
+    EventType NVARCHAR(50) NOT NULL,
+    StartDateTime DATETIME NOT NULL,
+    EndDateTime DATETIME NOT NULL,
+    PartySize INT NOT NULL,
+    SpecialRequests NVARCHAR(500),
+    Status NVARCHAR(20) DEFAULT 'Pending',
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    LastUpdated DATETIME DEFAULT GETDATE()
 );
+GO
 GO
 
 -- ============================================
@@ -171,30 +177,11 @@ CREATE TABLE dbo.Halls (
 );
 GO
 
--- ============================================
--- Step 12: Update Reservations table to use Halls and Events
--- ============================================
-IF OBJECT_ID('dbo.Reservations', 'U') IS NOT NULL
-    DROP TABLE dbo.Reservations;
-GO
 
-CREATE TABLE dbo.Reservations (
-    ReservationID INT PRIMARY KEY IDENTITY(1,1),
-    CustomerID INT FOREIGN KEY REFERENCES dbo.Users(UserID),
-    HallID INT FOREIGN KEY REFERENCES dbo.Halls(HallID),
-    EventType NVARCHAR(50) NOT NULL,
-    StartDateTime DATETIME NOT NULL,
-    EndDateTime DATETIME NOT NULL,
-    PartySize INT NOT NULL,
-    SpecialRequests NVARCHAR(500),
-    Status NVARCHAR(20) DEFAULT 'Pending',
-    CreatedDate DATETIME DEFAULT GETDATE(),
-    LastUpdated DATETIME DEFAULT GETDATE()
-);
 GO
 
 -- ============================================
--- Step 13: Create ReservationMessages table
+-- Step 12: Create ReservationMessages table
 -- ============================================
 IF OBJECT_ID('dbo.ReservationMessages', 'U') IS NOT NULL
     DROP TABLE dbo.ReservationMessages;
