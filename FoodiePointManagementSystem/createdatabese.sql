@@ -26,6 +26,7 @@ CREATE TABLE dbo.Users (
     CreatedAt DATETIME DEFAULT GETDATE()
 );
 GO
+    
 
 -- ============================================
 -- Step 3: Create Sales table (for sales reports)
@@ -152,4 +153,59 @@ VALUES
 ('chef', 'chef@example.com', 'Chef123!', 'Chef'),
 ('coordinator', 'coordinator@example.com', 'Coordinator123!', 'Reservation Coordinator'),
 ('customer', 'customer@example.com', 'Customer123!', 'Customer');
+GO
+
+-- ============================================
+-- Step 11: Create Halls table
+-- ============================================
+IF OBJECT_ID('dbo.Halls', 'U') IS NOT NULL
+    DROP TABLE dbo.Halls;
+GO
+
+CREATE TABLE dbo.Halls (
+    HallID INT PRIMARY KEY IDENTITY(1,1),
+    HallName NVARCHAR(50) NOT NULL,
+    Capacity INT NOT NULL,
+    Description NVARCHAR(200),
+    Status NVARCHAR(20) DEFAULT 'Available' -- 'Available', 'Under Maintenance'
+);
+GO
+
+-- ============================================
+-- Step 12: Update Reservations table to use Halls and Events
+-- ============================================
+IF OBJECT_ID('dbo.Reservations', 'U') IS NOT NULL
+    DROP TABLE dbo.Reservations;
+GO
+
+CREATE TABLE dbo.Reservations (
+    ReservationID INT PRIMARY KEY IDENTITY(1,1),
+    CustomerID INT FOREIGN KEY REFERENCES dbo.Users(UserID),
+    HallID INT FOREIGN KEY REFERENCES dbo.Halls(HallID),
+    EventType NVARCHAR(50) NOT NULL,
+    StartDateTime DATETIME NOT NULL,
+    EndDateTime DATETIME NOT NULL,
+    PartySize INT NOT NULL,
+    SpecialRequests NVARCHAR(500),
+    Status NVARCHAR(20) DEFAULT 'Pending',
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    LastUpdated DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- ============================================
+-- Step 13: Create ReservationMessages table
+-- ============================================
+IF OBJECT_ID('dbo.ReservationMessages', 'U') IS NOT NULL
+    DROP TABLE dbo.ReservationMessages;
+GO
+
+CREATE TABLE dbo.ReservationMessages (
+    MessageID INT PRIMARY KEY IDENTITY(1,1),
+    ReservationID INT FOREIGN KEY REFERENCES dbo.Reservations(ReservationID),
+    SenderID INT FOREIGN KEY REFERENCES dbo.Users(UserID),
+    MessageText NVARCHAR(500) NOT NULL,
+    SentDateTime DATETIME DEFAULT GETDATE(),
+    IsRead BIT DEFAULT 0
+);
 GO
