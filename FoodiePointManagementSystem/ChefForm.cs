@@ -239,8 +239,20 @@ namespace FoodiePointManagementSystem
             }
         }
 
-        
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // ログインフォームを開く
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+
+                // この画面を閉じる
+                this.Close(); // または this.Hide();
+            }
         }
+    }
     }
     
 

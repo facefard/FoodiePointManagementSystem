@@ -34,8 +34,6 @@
             this.btnUpdateOrderStatus = new System.Windows.Forms.Button();
             this.cmbOrderStatus = new System.Windows.Forms.ComboBox();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.foodiePointDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foodiePointDBDataSet = new FoodiePointManagementSystem.FoodiePointDBDataSet();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.btnDeleteInventory = new System.Windows.Forms.Button();
             this.btnUpdateInventory = new System.Windows.Forms.Button();
@@ -50,14 +48,19 @@
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.txtProfilePassword = new System.Windows.Forms.TextBox();
             this.txtProfileEmail = new System.Windows.Forms.TextBox();
+            this.foodiePointDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodiePointDBDataSet = new FoodiePointManagementSystem.FoodiePointDBDataSet();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnlogout = new System.Windows.Forms.Button();
             this.tabControlChef.SuspendLayout();
             this.tabOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).BeginInit();
             this.tabInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.tabProfile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlChef
@@ -68,7 +71,7 @@
             this.tabControlChef.Location = new System.Drawing.Point(12, -2);
             this.tabControlChef.Name = "tabControlChef";
             this.tabControlChef.SelectedIndex = 0;
-            this.tabControlChef.Size = new System.Drawing.Size(776, 440);
+            this.tabControlChef.Size = new System.Drawing.Size(776, 489);
             this.tabControlChef.TabIndex = 0;
             // 
             // tabOrders
@@ -79,7 +82,7 @@
             this.tabOrders.Location = new System.Drawing.Point(4, 28);
             this.tabOrders.Name = "tabOrders";
             this.tabOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOrders.Size = new System.Drawing.Size(768, 408);
+            this.tabOrders.Size = new System.Drawing.Size(768, 457);
             this.tabOrders.TabIndex = 0;
             this.tabOrders.Text = "manege";
             this.tabOrders.UseVisualStyleBackColor = true;
@@ -93,7 +96,6 @@
             this.btnUpdateOrderStatus.TabIndex = 2;
             this.btnUpdateOrderStatus.Text = "Update Order Status";
             this.btnUpdateOrderStatus.UseVisualStyleBackColor = true;
-       
             // 
             // cmbOrderStatus
             // 
@@ -120,16 +122,6 @@
             this.dgvOrders.Size = new System.Drawing.Size(615, 217);
             this.dgvOrders.TabIndex = 0;
             // 
-            // foodiePointDBDataSetBindingSource
-            // 
-            this.foodiePointDBDataSetBindingSource.DataSource = this.foodiePointDBDataSet;
-            this.foodiePointDBDataSetBindingSource.Position = 0;
-            // 
-            // foodiePointDBDataSet
-            // 
-            this.foodiePointDBDataSet.DataSetName = "FoodiePointDBDataSet";
-            this.foodiePointDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabInventory
             // 
             this.tabInventory.Controls.Add(this.btnDeleteInventory);
@@ -142,7 +134,7 @@
             this.tabInventory.Location = new System.Drawing.Point(4, 28);
             this.tabInventory.Name = "tabInventory";
             this.tabInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventory.Size = new System.Drawing.Size(768, 408);
+            this.tabInventory.Size = new System.Drawing.Size(768, 457);
             this.tabInventory.TabIndex = 1;
             this.tabInventory.Text = "stock";
             this.tabInventory.UseVisualStyleBackColor = true;
@@ -152,7 +144,7 @@
             this.btnDeleteInventory.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.btnDeleteInventory.Location = new System.Drawing.Point(549, 360);
             this.btnDeleteInventory.Name = "btnDeleteInventory";
-            this.btnDeleteInventory.Size = new System.Drawing.Size(132, 31);
+            this.btnDeleteInventory.Size = new System.Drawing.Size(132, 47);
             this.btnDeleteInventory.TabIndex = 6;
             this.btnDeleteInventory.Text = "Delete";
             this.btnDeleteInventory.UseVisualStyleBackColor = true;
@@ -163,7 +155,7 @@
             this.btnUpdateInventory.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.btnUpdateInventory.Location = new System.Drawing.Point(299, 360);
             this.btnUpdateInventory.Name = "btnUpdateInventory";
-            this.btnUpdateInventory.Size = new System.Drawing.Size(154, 31);
+            this.btnUpdateInventory.Size = new System.Drawing.Size(154, 47);
             this.btnUpdateInventory.TabIndex = 5;
             this.btnUpdateInventory.Text = "Update";
             this.btnUpdateInventory.UseVisualStyleBackColor = true;
@@ -174,7 +166,7 @@
             this.btnAddInventory.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.btnAddInventory.Location = new System.Drawing.Point(97, 360);
             this.btnAddInventory.Name = "btnAddInventory";
-            this.btnAddInventory.Size = new System.Drawing.Size(126, 31);
+            this.btnAddInventory.Size = new System.Drawing.Size(126, 47);
             this.btnAddInventory.TabIndex = 4;
             this.btnAddInventory.Text = "Add";
             this.btnAddInventory.UseVisualStyleBackColor = true;
@@ -221,6 +213,7 @@
             // 
             // tabProfile
             // 
+            this.tabProfile.Controls.Add(this.btnlogout);
             this.tabProfile.Controls.Add(this.label2);
             this.tabProfile.Controls.Add(this.label1);
             this.tabProfile.Controls.Add(this.btnUpdateProfile);
@@ -229,7 +222,7 @@
             this.tabProfile.Location = new System.Drawing.Point(4, 28);
             this.tabProfile.Name = "tabProfile";
             this.tabProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProfile.Size = new System.Drawing.Size(768, 408);
+            this.tabProfile.Size = new System.Drawing.Size(768, 457);
             this.tabProfile.TabIndex = 2;
             this.tabProfile.Text = "Profile";
             this.tabProfile.UseVisualStyleBackColor = true;
@@ -280,6 +273,28 @@
             this.txtProfileEmail.Size = new System.Drawing.Size(343, 25);
             this.txtProfileEmail.TabIndex = 0;
             // 
+            // foodiePointDBDataSetBindingSource
+            // 
+            this.foodiePointDBDataSetBindingSource.DataSource = this.foodiePointDBDataSet;
+            this.foodiePointDBDataSetBindingSource.Position = 0;
+            // 
+            // foodiePointDBDataSet
+            // 
+            this.foodiePointDBDataSet.DataSetName = "FoodiePointDBDataSet";
+            this.foodiePointDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnlogout
+            // 
+            this.btnlogout.Font = new System.Drawing.Font("MS UI Gothic", 13F);
+            this.btnlogout.Location = new System.Drawing.Point(552, 342);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnlogout.Size = new System.Drawing.Size(174, 41);
+            this.btnlogout.TabIndex = 5;
+            this.btnlogout.Text = "Logout";
+            this.btnlogout.UseVisualStyleBackColor = true;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -292,13 +307,14 @@
             this.tabControlChef.ResumeLayout(false);
             this.tabOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).EndInit();
             this.tabInventory.ResumeLayout(false);
             this.tabInventory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.tabProfile.ResumeLayout(false);
             this.tabProfile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,5 +342,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdateProfile;
+        private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
