@@ -1,4 +1,4 @@
-﻿namespace FoodiePoint
+﻿namespace FoodiePointManagementSystem
 {
     partial class ReservationCoordinatorMainForm
     {
@@ -43,12 +43,13 @@
             // 
             // dgvReservations
             // 
-            this.dgvReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservations.Location = new System.Drawing.Point(12, 50);
             this.dgvReservations.Name = "dgvReservations";
+            this.dgvReservations.RowHeadersWidth = 62;
             this.dgvReservations.Size = new System.Drawing.Size(760, 400);
             this.dgvReservations.TabIndex = 0;
             // 
@@ -57,7 +58,7 @@
             this.cboStatusFilter.FormattingEnabled = true;
             this.cboStatusFilter.Location = new System.Drawing.Point(12, 12);
             this.cboStatusFilter.Name = "cboStatusFilter";
-            this.cboStatusFilter.Size = new System.Drawing.Size(150, 21);
+            this.cboStatusFilter.Size = new System.Drawing.Size(150, 26);
             this.cboStatusFilter.TabIndex = 1;
             // 
             // btnNewReservation
@@ -128,7 +129,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Location = new System.Drawing.Point(12, 461);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(55, 13);
+            this.lblWelcome.Size = new System.Drawing.Size(78, 18);
             this.lblWelcome.TabIndex = 9;
             this.lblWelcome.Text = "Welcome:";
             // 
@@ -147,6 +148,7 @@
             this.Controls.Add(this.dgvReservations);
             this.Name = "ReservationCoordinatorMainForm";
             this.Text = "Reservation Coordinator";
+            this.Load += new System.EventHandler(this.ReservationCoordinatorMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

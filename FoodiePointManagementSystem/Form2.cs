@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FoodiePointManagementSystem
 {
-    public partial class CustomerForm : Form
+    public partial class Form2 : Form
     {
-        public CustomerForm()
+        public Form2()
         {
             InitializeComponent();
         }

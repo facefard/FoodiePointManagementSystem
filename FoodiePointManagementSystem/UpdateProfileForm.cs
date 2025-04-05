@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FoodiePoint;
 
-namespace FoodiePoint
+namespace FoodiePointManagementSystem
 {
     public partial class UpdateProfileForm : Form
     {
@@ -33,7 +32,7 @@ namespace FoodiePoint
             User user = coordinator.GetUserById(userId);
             if (user != null)
             {
-                txtFullName.Text = user.FullName;
+                txtUsername.Text = user.Username;
                 txtEmail.Text = user.Email;
                 txtPhone.Text = user.Phone;
             }
@@ -41,7 +40,7 @@ namespace FoodiePoint
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtFullName.Text))
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 MessageBox.Show("Please enter your full name.", "Validation",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -60,7 +59,7 @@ namespace FoodiePoint
                 User user = new User
                 {
                     UserID = userId,
-                    FullName = txtFullName.Text,
+                    Username = txtUsername.Text,
                     Email = txtEmail.Text,
                     Phone = txtPhone.Text
                 };
@@ -92,6 +91,11 @@ namespace FoodiePoint
         }
 
         private void UpdateProfileForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateProfileForm_Load_1(object sender, EventArgs e)
         {
 
         }

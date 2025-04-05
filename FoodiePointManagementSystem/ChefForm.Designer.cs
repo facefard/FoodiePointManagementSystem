@@ -96,15 +96,12 @@
             this.btnUpdateOrderStatus.TabIndex = 2;
             this.btnUpdateOrderStatus.Text = "Update Order Status";
             this.btnUpdateOrderStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateOrderStatus.Click += new System.EventHandler(this.btnUpdateOrderStatus_Click);
             // 
             // cmbOrderStatus
             // 
             this.cmbOrderStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrderStatus.FormattingEnabled = true;
-            this.cmbOrderStatus.Items.AddRange(new object[] {
-            "Peding",
-            "Inprogress",
-            "Completed"});
             this.cmbOrderStatus.Location = new System.Drawing.Point(531, 275);
             this.cmbOrderStatus.Name = "cmbOrderStatus";
             this.cmbOrderStatus.Size = new System.Drawing.Size(157, 26);

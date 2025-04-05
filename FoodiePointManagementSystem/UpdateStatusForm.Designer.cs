@@ -1,4 +1,4 @@
-﻿namespace FoodiePoint
+﻿namespace FoodiePointManagementSystem
 {
     partial class UpdateStatusForm
     {

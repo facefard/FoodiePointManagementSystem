@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FoodiePoint;
 
-namespace FoodiePoint
+namespace FoodiePointManagementSystem
 {
     public partial class UpdateStatusForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace FoodiePoint
+﻿namespace FoodiePointManagementSystem
 {
     partial class UpdateProfileForm
     {
@@ -17,7 +17,7 @@
 
         private void InitializeComponent()
         {
-            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -30,23 +30,23 @@
             // 
             // txtFullName
             // 
-            this.txtFullName.Location = new System.Drawing.Point(100, 20);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(200, 20);
-            this.txtFullName.TabIndex = 0;
+            this.txtUsername.Location = new System.Drawing.Point(100, 20);
+            this.txtUsername.Name = "txtFullName";
+            this.txtUsername.Size = new System.Drawing.Size(200, 25);
+            this.txtUsername.TabIndex = 0;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(100, 50);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.Size = new System.Drawing.Size(200, 25);
             this.txtEmail.TabIndex = 1;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(100, 80);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(200, 20);
+            this.txtPhone.Size = new System.Drawing.Size(200, 25);
             this.txtPhone.TabIndex = 2;
             // 
             // btnSave
@@ -72,7 +72,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(87, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Full Name:";
             // 
@@ -81,7 +81,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(52, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Email:";
             // 
@@ -90,7 +90,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(59, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Phone:";
             // 
@@ -104,20 +104,22 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtFullName);
+            this.Controls.Add(this.txtUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update Profile";
+            this.Load += new System.EventHandler(this.UpdateProfileForm_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Button btnSave;

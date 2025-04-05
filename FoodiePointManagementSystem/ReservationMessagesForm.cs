@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FoodiePoint;
 
-namespace FoodiePoint
+namespace FoodiePointManagementSystem
 {
     public partial class ReservationMessagesForm : Form
     {
@@ -98,6 +97,11 @@ namespace FoodiePoint
         }
 
         private void ReservationMessagesForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReservationMessagesForm_Load_1(object sender, EventArgs e)
         {
 
         }

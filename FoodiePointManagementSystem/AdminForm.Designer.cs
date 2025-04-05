@@ -49,6 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnViewSalesReport = new System.Windows.Forms.Button();
+            this.btnViewFeedback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).BeginInit();
@@ -58,9 +60,10 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.lblWelcome.Location = new System.Drawing.Point(323, 31);
+            this.lblWelcome.Location = new System.Drawing.Point(31, 9);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(393, 40);
+            this.lblWelcome.Size = new System.Drawing.Size(331, 34);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "WELCOME TO ADMIN";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -76,12 +79,14 @@
             this.passwordDataGridViewTextBoxColumn,
             this.roleDataGridViewTextBoxColumn});
             this.dgvUser.DataSource = this.usersBindingSource;
-            this.dgvUser.Location = new System.Drawing.Point(89, 106);
+            this.dgvUser.Location = new System.Drawing.Point(37, 129);
+            this.dgvUser.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersWidth = 62;
             this.dgvUser.RowTemplate.Height = 27;
-            this.dgvUser.Size = new System.Drawing.Size(863, 290);
+            this.dgvUser.Size = new System.Drawing.Size(735, 258);
             this.dgvUser.TabIndex = 1;
+            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick_1);
             this.dgvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellContentClick);
             // 
             // userIDDataGridViewTextBoxColumn
@@ -142,9 +147,10 @@
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.btnLogout.Location = new System.Drawing.Point(442, 697);
+            this.btnLogout.Location = new System.Drawing.Point(353, 635);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(192, 39);
+            this.btnLogout.Size = new System.Drawing.Size(154, 35);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -152,23 +158,28 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(342, 446);
+            this.txtUsername.Location = new System.Drawing.Point(138, 436);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(266, 25);
+            this.txtUsername.Size = new System.Drawing.Size(214, 22);
             this.txtUsername.TabIndex = 3;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(342, 510);
+            this.txtEmail.Location = new System.Drawing.Point(138, 500);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(266, 25);
+            this.txtEmail.Size = new System.Drawing.Size(214, 22);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(457, 592);
+            this.btnAdd.Location = new System.Drawing.Point(190, 565);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(103, 39);
+            this.btnAdd.Size = new System.Drawing.Size(82, 35);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -176,28 +187,33 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(784, 592);
+            this.btnUpdate.Location = new System.Drawing.Point(620, 565);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 39);
+            this.btnUpdate.Size = new System.Drawing.Size(76, 35);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(169, 592);
+            this.btnDelete.Location = new System.Drawing.Point(393, 565);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 39);
+            this.btnDelete.Size = new System.Drawing.Size(78, 35);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(760, 450);
+            this.cmbRole.Location = new System.Drawing.Point(641, 89);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(175, 26);
+            this.cmbRole.Size = new System.Drawing.Size(141, 24);
             this.cmbRole.TabIndex = 9;
             this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
             // 
@@ -205,9 +221,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(192, 446);
+            this.label1.Location = new System.Drawing.Point(11, 431);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 30);
+            this.label1.Size = new System.Drawing.Size(118, 25);
             this.label1.TabIndex = 10;
             this.label1.Text = "Username";
             // 
@@ -215,9 +232,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(199, 510);
+            this.label2.Location = new System.Drawing.Point(11, 500);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 30);
+            this.label2.Size = new System.Drawing.Size(66, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Email";
             // 
@@ -225,17 +243,40 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(686, 446);
+            this.label3.Location = new System.Drawing.Point(578, 88);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 30);
+            this.label3.Size = new System.Drawing.Size(59, 25);
             this.label3.TabIndex = 12;
             this.label3.Text = "Role";
             // 
+            // btnViewSalesReport
+            // 
+            this.btnViewSalesReport.Location = new System.Drawing.Point(427, 421);
+            this.btnViewSalesReport.Name = "btnViewSalesReport";
+            this.btnViewSalesReport.Size = new System.Drawing.Size(107, 52);
+            this.btnViewSalesReport.TabIndex = 13;
+            this.btnViewSalesReport.Text = "ViewSales";
+            this.btnViewSalesReport.UseVisualStyleBackColor = true;
+            this.btnViewSalesReport.Click += new System.EventHandler(this.btnViewSalesReport_Click);
+            // 
+            // btnViewFeedback
+            // 
+            this.btnViewFeedback.Location = new System.Drawing.Point(427, 490);
+            this.btnViewFeedback.Name = "btnViewFeedback";
+            this.btnViewFeedback.Size = new System.Drawing.Size(107, 52);
+            this.btnViewFeedback.TabIndex = 14;
+            this.btnViewFeedback.Text = "ViewFeedback";
+            this.btnViewFeedback.UseVisualStyleBackColor = true;
+            this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
+            // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 767);
+            this.ClientSize = new System.Drawing.Size(834, 682);
+            this.Controls.Add(this.btnViewFeedback);
+            this.Controls.Add(this.btnViewSalesReport);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -248,6 +289,7 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.dgvUser);
             this.Controls.Add(this.lblWelcome);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
@@ -281,5 +323,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnViewSalesReport;
+        private System.Windows.Forms.Button btnViewFeedback;
     }
 }

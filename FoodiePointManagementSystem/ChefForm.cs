@@ -13,11 +13,13 @@ namespace FoodiePointManagementSystem
 {
     public partial class ChefForm : Form
     {
-        private string connectionString = "Server=LENO\\SQLEXPRESS;Database=FoodiePointDB;Integrated Security=True;";
+        private string connectionString = "Data Source=DESKTOP-QLHJCNR\\SQLEXPRESS;Initial Catalog=FoodiePointDB;Integrated Security=True;";
+        private int currentUserId;
 
-        public ChefForm()
+        public ChefForm(int userId)
         {
             InitializeComponent();
+            this.currentUserId = userId;
         }
 
         private void ChefForm_Load(object sender, EventArgs e)
@@ -26,6 +28,9 @@ namespace FoodiePointManagementSystem
             LoadOrders();
             LoadInventory();
 
+            cmbOrderStatus.Items.AddRange(new object[] { "Pending", "In Progress", "Completed" });
+            cmbOrderStatus.SelectedIndex = 0; // Устанавливаем первый элемент по умолчанию
+            dgvOrders.SelectionChanged += dgvOrders_SelectionChanged;
         }
         private void LoadOrders()
         {
@@ -76,7 +81,73 @@ namespace FoodiePointManagementSystem
 
         private void btnUpdateOrderStatus_Click(object sender, EventArgs e)
         {
+            // Проверяем, что выбрана строка в DataGridView
+            if (dgvOrders.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order first", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Получаем ID выбранного заказа
+            int orderId = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["OrderID"].Value);
+
+            // Получаем выбранный статус из ComboBox
+            string newStatus = cmbOrderStatus.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(newStatus))
+            {
+                MessageBox.Show("Please select a valid status", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Обновляем статус в базе данных
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE Orders SET Status = @Status WHERE OrderID = @OrderID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Status", newStatus);
+                        cmd.Parameters.AddWithValue("@OrderID", orderId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show($"Order status updated to '{newStatus}' successfully",
+                                          "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadOrders(); // Обновляем список заказов
+                        }
+                        else
+                        {
+                            MessageBox.Show("No orders were updated", "Warning",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Update error: {ex.Message}", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dgvOrders_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvOrders.SelectedRows.Count > 0)
+            {
+                // Устанавливаем текущий статус заказа в ComboBox
+                string currentStatus = dgvOrders.SelectedRows[0].Cells["Status"].Value?.ToString();
+                if (!string.IsNullOrEmpty(currentStatus))
+                {
+                    cmbOrderStatus.SelectedItem = currentStatus;
+                }
+            }
         }
 
         private void btnAddInventory_Click(object sender, EventArgs e)
@@ -209,34 +280,55 @@ namespace FoodiePointManagementSystem
             string newEmail = txtProfileEmail.Text.Trim();
             string newPassword = txtProfilePassword.Text.Trim();
 
-            if ( string.Equals(newEmail, "") || string.Equals(newPassword, ""))
+            if (string.IsNullOrWhiteSpace(newEmail) || string.IsNullOrWhiteSpace(newPassword))
             {
-                MessageBox.Show("Enter correct ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter both email and password", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            int chefID = 3;
-            
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            int userId = 3; // Это должно быть ID текущего пользователя
+
+            try
             {
-                try
+                // Хешируем пароль
+                string hashedPassword = HashPassword(newPassword);
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "UPDATE Chef SET Email = @Email, Password = @Password WHERE ChefID = @ChefID";
+                    string query = "UPDATE Users SET Email = @Email, Password = @Password WHERE UserID = @UserID";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Email", newEmail);
                         cmd.Parameters.AddWithValue("@Password", newPassword);
-                        cmd.Parameters.AddWithValue("@ChefID", chefID);
-                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@UserID", this.currentUserId); // Используем переданный ID
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Profile updated successfully", "Success",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update profile", "Error",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    MessageBox.Show("Profile updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Update error: " + ex.Message);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Update error: " + ex.Message);
+            }
+        }
+
+        private string HashPassword(string password)
+        {
+            // Реализуйте хеширование пароля (например, используя BCrypt)
+            return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(password));
         }
 
         private void btnlogout_Click(object sender, EventArgs e)
@@ -245,7 +337,7 @@ namespace FoodiePointManagementSystem
             if (result == DialogResult.Yes)
             {
                 // ログインフォームを開く
-                Form1 loginForm = new Form1();
+                LogIN loginForm = new LogIN();
                 loginForm.Show();
 
                 // この画面を閉じる

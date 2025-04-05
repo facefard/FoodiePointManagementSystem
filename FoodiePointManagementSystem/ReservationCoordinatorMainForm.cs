@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Data;
 
-namespace FoodiePoint
+namespace FoodiePointManagementSystem
 {
     public partial class ReservationCoordinatorMainForm : Form
     {
@@ -48,7 +48,7 @@ namespace FoodiePoint
             User user = coordinator.GetUserById(currentUserId);
             if (user != null)
             {
-                lblWelcome.Text = $"Welcome, {user.FullName}";
+                lblWelcome.Text = $"Welcome, {user.Username}";
             }
         }
 
@@ -259,12 +259,19 @@ namespace FoodiePoint
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+            LogIN loginForm = new LogIN();
+            loginForm.Show();
         }
 
         private void cboStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             string status = cboStatusFilter.SelectedItem?.ToString();
             LoadReservations(status);
+        }
+
+        private void ReservationCoordinatorMainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
