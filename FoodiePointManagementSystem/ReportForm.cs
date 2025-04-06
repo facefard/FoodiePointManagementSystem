@@ -69,5 +69,10 @@ namespace FoodiePointManagementSystem
             // Отображаем данные в DataGridView
             dgvReservations.DataSource = reservations;
         }
+
+        private void dgvReservations_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

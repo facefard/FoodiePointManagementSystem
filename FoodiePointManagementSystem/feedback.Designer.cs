@@ -55,9 +55,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(171, 124);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -75,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(455, 54);
+            this.label2.Location = new System.Drawing.Point(440, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(356, 16);
             this.label2.TabIndex = 2;
@@ -83,30 +83,35 @@
             // 
             // txtFeedbackUsername
             // 
-            this.txtFeedbackUsername.Location = new System.Drawing.Point(241, 213);
+            this.txtFeedbackUsername.Location = new System.Drawing.Point(215, 213);
             this.txtFeedbackUsername.Name = "txtFeedbackUsername";
             this.txtFeedbackUsername.Size = new System.Drawing.Size(187, 22);
             this.txtFeedbackUsername.TabIndex = 3;
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(181, 253);
+            this.txtComment.Location = new System.Drawing.Point(215, 253);
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(338, 22);
+            this.txtComment.Size = new System.Drawing.Size(187, 22);
             this.txtComment.TabIndex = 4;
+            this.txtComment.TextChanged += new System.EventHandler(this.txtComment_TextChanged);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
-            this.dateTimePicker1.Location = new System.Drawing.Point(242, 290);
+            this.dateTimePicker1.Location = new System.Drawing.Point(198, 315);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(227, 22);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // btnSubmitFeedback
             // 
-            this.btnSubmitFeedback.BackColor = System.Drawing.Color.Red;
-            this.btnSubmitFeedback.Location = new System.Drawing.Point(256, 396);
+            this.btnSubmitFeedback.BackColor = System.Drawing.Color.White;
+            this.btnSubmitFeedback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSubmitFeedback.FlatAppearance.BorderSize = 0;
+            this.btnSubmitFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSubmitFeedback.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.btnSubmitFeedback.Location = new System.Drawing.Point(271, 373);
             this.btnSubmitFeedback.Name = "btnSubmitFeedback";
             this.btnSubmitFeedback.Size = new System.Drawing.Size(113, 58);
             this.btnSubmitFeedback.TabIndex = 6;
@@ -128,7 +133,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1050, 134);
+            this.label4.Location = new System.Drawing.Point(1054, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 27);
             this.label4.TabIndex = 8;
@@ -136,7 +141,7 @@
             // 
             // txtTableNumber
             // 
-            this.txtTableNumber.Location = new System.Drawing.Point(1034, 302);
+            this.txtTableNumber.Location = new System.Drawing.Point(1034, 273);
             this.txtTableNumber.Name = "txtTableNumber";
             this.txtTableNumber.Size = new System.Drawing.Size(187, 22);
             this.txtTableNumber.TabIndex = 9;
@@ -150,7 +155,7 @@
             // 
             // txtReservationUsername
             // 
-            this.txtReservationUsername.Location = new System.Drawing.Point(1034, 185);
+            this.txtReservationUsername.Location = new System.Drawing.Point(1034, 212);
             this.txtReservationUsername.Name = "txtReservationUsername";
             this.txtReservationUsername.Size = new System.Drawing.Size(187, 22);
             this.txtReservationUsername.TabIndex = 11;
@@ -158,69 +163,71 @@
             // dtpReservationDate
             // 
             this.dtpReservationDate.CalendarMonthBackground = System.Drawing.SystemColors.HighlightText;
-            this.dtpReservationDate.Location = new System.Drawing.Point(1034, 351);
+            this.dtpReservationDate.Location = new System.Drawing.Point(1011, 315);
             this.dtpReservationDate.Name = "dtpReservationDate";
-            this.dtpReservationDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpReservationDate.Size = new System.Drawing.Size(227, 22);
             this.dtpReservationDate.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(796, 185);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(862, 212);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 20);
+            this.label5.Size = new System.Drawing.Size(114, 23);
             this.label5.TabIndex = 14;
-            this.label5.Text = "customer username";
+            this.label5.Text = "Username:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 255);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(31, 250);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 20);
+            this.label6.Size = new System.Drawing.Size(114, 23);
             this.label6.TabIndex = 15;
-            this.label6.Text = "comment:";
+            this.label6.Text = "Comment:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 213);
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(31, 212);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 20);
+            this.label7.Size = new System.Drawing.Size(114, 23);
             this.label7.TabIndex = 16;
-            this.label7.Text = "customer username";
+            this.label7.Text = "Username:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(838, 304);
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(862, 273);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 20);
+            this.label8.Size = new System.Drawing.Size(147, 23);
             this.label8.TabIndex = 17;
             this.label8.Text = "table number:\r\n";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(838, 241);
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(862, 241);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(133, 20);
+            this.label9.Size = new System.Drawing.Size(160, 23);
             this.label9.TabIndex = 18;
             this.label9.Text = "phone number:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // btnConfirmReservation
             // 
-            this.btnConfirmReservation.BackColor = System.Drawing.Color.Red;
-            this.btnConfirmReservation.ForeColor = System.Drawing.Color.Black;
-            this.btnConfirmReservation.Location = new System.Drawing.Point(1055, 396);
+            this.btnConfirmReservation.BackColor = System.Drawing.Color.White;
+            this.btnConfirmReservation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConfirmReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.btnConfirmReservation.Location = new System.Drawing.Point(1059, 373);
             this.btnConfirmReservation.Name = "btnConfirmReservation";
-            this.btnConfirmReservation.Size = new System.Drawing.Size(109, 56);
+            this.btnConfirmReservation.Size = new System.Drawing.Size(113, 58);
             this.btnConfirmReservation.TabIndex = 19;
             this.btnConfirmReservation.Text = "Request";
             this.btnConfirmReservation.UseVisualStyleBackColor = false;
@@ -228,8 +235,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(1124, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 53);
@@ -242,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1328, 551);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnConfirmReservation);
@@ -264,6 +272,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "feedback";
             this.Text = "Reservation";
             this.Load += new System.EventHandler(this.feedback_Load);

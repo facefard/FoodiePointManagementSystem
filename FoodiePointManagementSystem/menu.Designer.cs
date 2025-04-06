@@ -42,37 +42,44 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-18, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(-24, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(759, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(1012, 591);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cartListView
             // 
             this.cartListView.HideSelection = false;
-            this.cartListView.Location = new System.Drawing.Point(814, 0);
+            this.cartListView.Location = new System.Drawing.Point(1085, 0);
+            this.cartListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cartListView.Name = "cartListView";
-            this.cartListView.Size = new System.Drawing.Size(317, 342);
+            this.cartListView.Size = new System.Drawing.Size(421, 420);
             this.cartListView.TabIndex = 1;
             this.cartListView.UseCompatibleStateImageBehavior = false;
             // 
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(849, 315);
+            this.lblTotalPrice.Location = new System.Drawing.Point(1132, 388);
+            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(34, 15);
+            this.lblTotalPrice.Size = new System.Drawing.Size(38, 16);
             this.lblTotalPrice.TabIndex = 2;
             this.lblTotalPrice.Text = "Total";
             // 
             // btnCheckout
             // 
-            this.btnCheckout.BackColor = System.Drawing.Color.Red;
-            this.btnCheckout.Location = new System.Drawing.Point(873, 417);
+            this.btnCheckout.BackColor = System.Drawing.Color.White;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckout.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.btnCheckout.Location = new System.Drawing.Point(1097, 513);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(122, 63);
+            this.btnCheckout.Size = new System.Drawing.Size(163, 78);
             this.btnCheckout.TabIndex = 3;
             this.btnCheckout.Text = "Chackout";
             this.btnCheckout.UseVisualStyleBackColor = false;
@@ -80,10 +87,14 @@
             // 
             // btnClearCart
             // 
-            this.btnClearCart.BackColor = System.Drawing.Color.Red;
-            this.btnClearCart.Location = new System.Drawing.Point(1024, 417);
+            this.btnClearCart.BackColor = System.Drawing.Color.White;
+            this.btnClearCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClearCart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearCart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.btnClearCart.Location = new System.Drawing.Point(1321, 513);
+            this.btnClearCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClearCart.Name = "btnClearCart";
-            this.btnClearCart.Size = new System.Drawing.Size(122, 63);
+            this.btnClearCart.Size = new System.Drawing.Size(163, 78);
             this.btnClearCart.TabIndex = 4;
             this.btnClearCart.Text = "clear card";
             this.btnClearCart.UseVisualStyleBackColor = false;
@@ -91,26 +102,30 @@
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(991, 361);
+            this.txtCustomerName.Location = new System.Drawing.Point(1321, 444);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(135, 20);
+            this.txtCustomerName.Size = new System.Drawing.Size(179, 22);
             this.txtCustomerName.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(810, 361);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1081, 444);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 20);
+            this.label1.Size = new System.Drawing.Size(198, 19);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Enter name to confirm";
+            this.label1.Text = "Enter name to confirm :";
             // 
-            // Form1
+            // menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 492);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.ClientSize = new System.Drawing.Size(1707, 606);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.btnClearCart);
@@ -118,7 +133,8 @@
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.cartListView);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "menu";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

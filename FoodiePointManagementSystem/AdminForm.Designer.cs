@@ -51,21 +51,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnViewSalesReport = new System.Windows.Forms.Button();
             this.btnViewFeedback = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.lblWelcome.Location = new System.Drawing.Point(31, 9);
+            this.lblWelcome.Location = new System.Drawing.Point(262, 22);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(331, 34);
+            this.lblWelcome.Size = new System.Drawing.Size(277, 34);
             this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "WELCOME TO ADMIN";
+            this.lblWelcome.Text = "WELCOME ADMIN";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dgvUser
@@ -79,15 +81,14 @@
             this.passwordDataGridViewTextBoxColumn,
             this.roleDataGridViewTextBoxColumn});
             this.dgvUser.DataSource = this.usersBindingSource;
-            this.dgvUser.Location = new System.Drawing.Point(37, 129);
+            this.dgvUser.Location = new System.Drawing.Point(11, 412);
             this.dgvUser.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersWidth = 62;
             this.dgvUser.RowTemplate.Height = 27;
-            this.dgvUser.Size = new System.Drawing.Size(735, 258);
+            this.dgvUser.Size = new System.Drawing.Size(572, 258);
             this.dgvUser.TabIndex = 1;
-            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick_1);
-            this.dgvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellContentClick);
+            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
             // 
             // userIDDataGridViewTextBoxColumn
             // 
@@ -146,19 +147,22 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.btnLogout.Location = new System.Drawing.Point(353, 635);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(671, 24);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(154, 35);
+            this.btnLogout.Size = new System.Drawing.Size(97, 35);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(138, 436);
+            this.txtUsername.Location = new System.Drawing.Point(156, 173);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(214, 22);
@@ -167,7 +171,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(138, 500);
+            this.txtEmail.Location = new System.Drawing.Point(156, 209);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(214, 22);
@@ -176,7 +180,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(190, 565);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAdd.Location = new System.Drawing.Point(22, 298);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(82, 35);
@@ -187,7 +192,8 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(620, 565);
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnUpdate.Location = new System.Drawing.Point(181, 298);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(76, 35);
@@ -198,7 +204,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(393, 565);
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDelete.Location = new System.Drawing.Point(100, 356);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(78, 35);
@@ -209,8 +216,9 @@
             // 
             // cmbRole
             // 
+            this.cmbRole.ForeColor = System.Drawing.Color.Black;
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(641, 89);
+            this.cmbRole.Location = new System.Drawing.Point(671, 173);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(141, 24);
@@ -221,29 +229,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label1.Location = new System.Drawing.Point(11, 431);
+            this.label1.Location = new System.Drawing.Point(17, 168);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 25);
+            this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Username";
+            this.label1.Text = "Username:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label2.Location = new System.Drawing.Point(11, 500);
+            this.label2.Location = new System.Drawing.Point(17, 206);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 25);
+            this.label2.Size = new System.Drawing.Size(71, 25);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Email";
+            this.label2.Text = "Email:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.label3.Location = new System.Drawing.Point(578, 88);
+            this.label3.Location = new System.Drawing.Point(564, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 25);
@@ -252,7 +260,8 @@
             // 
             // btnViewSalesReport
             // 
-            this.btnViewSalesReport.Location = new System.Drawing.Point(427, 421);
+            this.btnViewSalesReport.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnViewSalesReport.Location = new System.Drawing.Point(516, 347);
             this.btnViewSalesReport.Name = "btnViewSalesReport";
             this.btnViewSalesReport.Size = new System.Drawing.Size(107, 52);
             this.btnViewSalesReport.TabIndex = 13;
@@ -262,7 +271,8 @@
             // 
             // btnViewFeedback
             // 
-            this.btnViewFeedback.Location = new System.Drawing.Point(427, 490);
+            this.btnViewFeedback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnViewFeedback.Location = new System.Drawing.Point(371, 347);
             this.btnViewFeedback.Name = "btnViewFeedback";
             this.btnViewFeedback.Size = new System.Drawing.Size(107, 52);
             this.btnViewFeedback.TabIndex = 14;
@@ -270,11 +280,24 @@
             this.btnViewFeedback.UseVisualStyleBackColor = true;
             this.btnViewFeedback.Click += new System.EventHandler(this.btnViewFeedback_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.pictureBox1.Image = global::FoodiePointManagementSystem.Properties.Resources.FoodiePoint_removebg_previewww;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(834, 682);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnViewFeedback);
             this.Controls.Add(this.btnViewSalesReport);
             this.Controls.Add(this.label3);
@@ -289,6 +312,7 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.dgvUser);
             this.Controls.Add(this.lblWelcome);
+            this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
@@ -296,6 +320,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodiePointDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +350,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnViewSalesReport;
         private System.Windows.Forms.Button btnViewFeedback;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

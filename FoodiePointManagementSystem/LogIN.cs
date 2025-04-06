@@ -13,10 +13,18 @@ namespace FoodiePointManagementSystem
 {
     public partial class LogIN : Form
     {
+        private Image defaultImage;
+        private Image hoverImage;
 
         public LogIN()
         {
             InitializeComponent();
+
+            defaultImage = Image.FromFile(@"Resources\FoodiePoint__2_-removebg-preview.png");
+            hoverImage = Image.FromFile(@"Resources\HoverImg.png");
+
+            pictureBox1.Image = defaultImage;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace FoodiePointManagementSystem
 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
-            
+            lblShowPass.Visible = txtPass.Text.Length > 0;
         }
 
         private void txtPass_Click(object sender, EventArgs e)
@@ -79,12 +87,12 @@ namespace FoodiePointManagementSystem
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            
+            pictureBox1.Image = hoverImage;
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            
+            pictureBox1.Image = defaultImage;
         }
 
         private void txtPass_Enter(object sender, EventArgs e)

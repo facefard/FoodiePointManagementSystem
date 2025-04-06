@@ -32,11 +32,6 @@ namespace FoodiePointManagementSystem
             LoadUserData();
         }
 
-        private void dgvUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 

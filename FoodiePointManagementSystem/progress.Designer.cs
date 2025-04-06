@@ -41,7 +41,7 @@
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(412, 99);
+            this.txtCustomerName.Location = new System.Drawing.Point(582, 155);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(252, 22);
             this.txtCustomerName.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 105);
+            this.label1.Location = new System.Drawing.Point(311, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 16);
             this.label1.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.lblOrderStatus.AutoSize = true;
             this.lblOrderStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderStatus.Location = new System.Drawing.Point(158, 228);
+            this.lblOrderStatus.Location = new System.Drawing.Point(331, 228);
             this.lblOrderStatus.Name = "lblOrderStatus";
             this.lblOrderStatus.Size = new System.Drawing.Size(117, 22);
             this.lblOrderStatus.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.lblReservationStatus.AutoSize = true;
             this.lblReservationStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReservationStatus.Location = new System.Drawing.Point(670, 228);
+            this.lblReservationStatus.Location = new System.Drawing.Point(603, 228);
             this.lblReservationStatus.Name = "lblReservationStatus";
             this.lblReservationStatus.Size = new System.Drawing.Size(170, 22);
             this.lblReservationStatus.TabIndex = 3;
@@ -78,9 +78,10 @@
             // 
             // btnCheckStatus
             // 
-            this.btnCheckStatus.BackColor = System.Drawing.Color.Red;
-            this.btnCheckStatus.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCheckStatus.Location = new System.Drawing.Point(412, 404);
+            this.btnCheckStatus.BackColor = System.Drawing.Color.White;
+            this.btnCheckStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
+            this.btnCheckStatus.Location = new System.Drawing.Point(442, 352);
             this.btnCheckStatus.Name = "btnCheckStatus";
             this.btnCheckStatus.Size = new System.Drawing.Size(197, 78);
             this.btnCheckStatus.TabIndex = 4;
@@ -90,8 +91,10 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(917, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 59);
@@ -106,7 +109,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(-1, -4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(164, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -115,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1097, 619);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -124,6 +127,7 @@
             this.Controls.Add(this.lblOrderStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCustomerName);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "progressForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

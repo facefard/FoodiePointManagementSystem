@@ -282,10 +282,18 @@
     <None Include="Resources\FoodiePoint__1_-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FoodiePoint__2_-removebg-preview.png" />
+    <Content Include="Resources\FoodiePoint__2_-removebg-preview.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\FP LOGO.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FoodiePoint-removebg-previewww.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\HoverImg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,8 +59,11 @@
             // 
             // btnUpdateProfile
             // 
-            this.btnUpdateProfile.BackColor = System.Drawing.Color.Red;
-            this.btnUpdateProfile.Location = new System.Drawing.Point(516, 342);
+            this.btnUpdateProfile.BackColor = System.Drawing.Color.White;
+            this.btnUpdateProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateProfile.Font = new System.Drawing.Font("Century", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.btnUpdateProfile.Location = new System.Drawing.Point(527, 341);
             this.btnUpdateProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateProfile.Name = "btnUpdateProfile";
             this.btnUpdateProfile.Size = new System.Drawing.Size(123, 62);
@@ -72,22 +75,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(393, 218);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 22);
+            this.label1.Size = new System.Drawing.Size(170, 23);
             this.label1.TabIndex = 3;
-            this.label1.Text = "new username ";
+            this.label1.Text = "New Username :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(413, 270);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(393, 267);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 22);
+            this.label2.Size = new System.Drawing.Size(162, 23);
             this.label2.TabIndex = 4;
-            this.label2.Text = "newpassword";
+            this.label2.Text = "New Password :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
@@ -101,12 +106,13 @@
             // oldUsername
             // 
             this.oldUsername.AutoSize = true;
-            this.oldUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oldUsername.Location = new System.Drawing.Point(413, 170);
+            this.oldUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oldUsername.ForeColor = System.Drawing.Color.White;
+            this.oldUsername.Location = new System.Drawing.Point(393, 172);
             this.oldUsername.Name = "oldUsername";
-            this.oldUsername.Size = new System.Drawing.Size(130, 22);
+            this.oldUsername.Size = new System.Drawing.Size(161, 23);
             this.oldUsername.TabIndex = 6;
-            this.oldUsername.Text = "old username";
+            this.oldUsername.Text = "Old Username :";
             this.oldUsername.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox1
@@ -122,8 +128,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(1055, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 53);
@@ -136,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1192, 612);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);

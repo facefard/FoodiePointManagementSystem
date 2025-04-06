@@ -46,6 +46,7 @@
             // 
             // btnSendMessage
             // 
+            this.btnSendMessage.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSendMessage.Location = new System.Drawing.Point(418, 218);
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(75, 60);
@@ -64,6 +65,7 @@
             // 
             // ReservationMessagesForm
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(584, 290);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSendMessage);
